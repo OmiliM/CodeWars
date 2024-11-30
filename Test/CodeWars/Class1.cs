@@ -1,21 +1,22 @@
-﻿namespace Codewars;
+﻿using System.Linq;
+namespace Codewars;
 
 public static class CodeWars
 {
     // 1) https://www.codewars.com/kata/56170e844da7c6f647000063
     public static string PeopleWithAgeDrink(int old)
     {
-        if (old>=0 & old<14)
-            return "drink toddy";
-    
-        else if (old>=14 & old<18)
-            return "drink coke";
-    
-        else if (old>=18 & old<21)
-            return "drink beer";
-    
-        else 
-            return "drink whisky";
+        switch (old)
+        {
+            case < 14:
+                return "drink toddy";
+            case < 18:
+                return "drink coke";
+            case < 21:
+                return "drink beer";
+            default:
+                return "drink whisky";
+        }
     }
     
     // 2) https://www.codewars.com/kata/59342039eb450e39970000a6
@@ -70,14 +71,7 @@ public static class CodeWars
     // 6) https://www.codewars.com/kata/555086d53eac039a2a000083
     public static bool lovefunc(int flower1, int flower2)
     { 
-        if ( flower1 % 2 + flower2 % 2 == 1)
-        {
-            return true;
-        }
-        else
-        {
-            return false;
-        }
+        return ( flower1 % 2 + flower2 % 2 == 1);
     }
     
     // 7) https://www.codewars.com/kata/544675c6f971f7399a000e79
@@ -87,14 +81,11 @@ public static class CodeWars
     }
     
     // 8) https://www.codewars.com/kata/515e271a311df0350d00000f
+    
+    
     public static int SquareSum(int[] numbers)
     { 
-        int sum = 0;
-        for(int i = 0; i < numbers.Length; i++)
-        {
-            sum += (numbers[i] * numbers[i]);
-        }
-        return sum;
+        return numbers.Select(n => n * n).Sum(); 
     }
     
     // 9) https://www.codewars.com/kata/5265326f5fda8eb1160004c8
